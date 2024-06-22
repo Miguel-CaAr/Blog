@@ -29,5 +29,15 @@ class UserView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-        
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def patch(self, request):
+        user = User.objects.get(id=request.user.id)
+        serializer = UserUpdateSerializer(
+            user, data=request.data, partial=True)  # Usar partial=True para PATCH
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
