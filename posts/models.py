@@ -4,12 +4,12 @@ from users.models import User
 from categories.models import Category
 
 class Post(models.Model):
-  title = models.CharField(max_length=255)
-  content = models.TextField()
+  title = models.CharField(max_length=255, null=False)
+  content = models.TextField(null=False)
   slug = models.SlugField(max_length=255, unique=True)
   miniature = models.ImageField(upload_to='posts/images/')
   created_at = models.DateTimeField(auto_now_add=True)
-  published = models.BooleanField(default=False)
+  published = models.BooleanField(null=False)
   user = models.ForeignKey(User, on_delete=SET_NULL, null=True)
   category = models.ForeignKey(Category, on_delete=SET_NULL, null=True)
   

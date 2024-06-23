@@ -11,4 +11,4 @@ class CommentsViewSet(ModelViewSet):
   queryset = Comments.objects.all()
   filter_backends = [OrderingFilter, DjangoFilterBackend]
   ordering = ['-created_at'] # Con el '-' se ordena del registro nuevo al antiguos
-  filterset_fields = ['post']
+  filterset_fields = ['id', 'post']

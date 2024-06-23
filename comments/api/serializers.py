@@ -3,9 +3,18 @@ from ..models import Comments
 from posts.api.serializers import PostSerializer
 from users.api.serializers import UserSerializer
 
+
 class CommentsSerializers(serializers.ModelSerializer):
-    post = PostSerializer()
-    user = UserSerializer()
     class Meta:
         model = Comments
-        fields = ['content', 'created_at', 'user', 'post']
+        fields = ['id', 'content', 'created_at', 'user', 'post']
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['post'] = PostSerializer(instance.post).data['title']
+        representation['user'] = UserSerializer(instance.user).data['username']
+        return representation
+
+    def create(self, validated_data):
+        validated_data['user'] = self.context['request'].user
+        return super().create(validated_data)
