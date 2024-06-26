@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'categories',
     'posts',
     'comments',
+    #Utils
+    'utils.password_reset',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,11 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(hours=8),
 }
+
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'postmanpruebadrf@gmail.com'  # Tu correo desde el cual se enviarán los correos
+EMAIL_HOST_PASSWORD = 'passwordpruebadrf;'   # Contraseña de tu correo
+EMAIL_PORT = 587
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

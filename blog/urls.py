@@ -3,7 +3,7 @@ from django.urls import path, include
 # Doc
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-# Vieset
+# Viewset
 from categories.api.router import router_categories
 from posts.api.router import router_post
 from comments.api.router import router_comments
@@ -30,5 +30,6 @@ urlpatterns = [
     path('api/', include('users.api.router')),
     path('api/', include(router_categories.urls)),
     path('api/', include(router_post.urls)),
-    path('api/', include(router_comments.urls))
+    path('api/', include(router_comments.urls)),
+    path('api/', include('utils.password_reset.api.router'))
 ]
