@@ -1,3 +1,10 @@
 *db.sqlite3
 /static
 /venv
+.env
+staticfiles/
+media/
+.idea
+.vscode
+.pyc
+__pycache__/
