@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,6 +57,8 @@ INSTALLED_APPS = [
     #Utils
     'utils.password_reset',
     'corsheaders',
+    # Cloudinary (Para almacenar imagenes)
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -164,3 +167,9 @@ EMAIL_HOST_USER = 'postmanpruebadrf@gmail.com'  # Tu correo desde el cual se env
 EMAIL_HOST_PASSWORD = 'passwordpruebadrf;'   # Contraseña de tu correo
 EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+cloudinary.config(
+    cloud_name="duobjlhl9",
+    api_key="668237792194115",
+    api_secret="VKXVPMmgTyjySQWoRrKyCy4TEd0"
+)
