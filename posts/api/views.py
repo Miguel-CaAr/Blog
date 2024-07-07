@@ -11,4 +11,4 @@ class PostApiViewSet(ModelViewSet):
     lookup_field = 'slug'
     permission_classes = [IsAdminReadOnly]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id', 'title', 'category__slug']
+    filterset_fields = ['id', 'title', 'category__title']
