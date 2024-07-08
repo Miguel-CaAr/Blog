@@ -11,7 +11,7 @@ class Post(models.Model):
   # miniature = models.ImageField(upload_to='posts/images/')
   miniature = CloudinaryField('image', default='')
   created_at = models.DateTimeField(auto_now_add=True)
-  published = models.BooleanField(null=False)
+  published = models.BooleanField(default=True)
   user = models.ForeignKey(User, on_delete=SET_NULL, null=True)
   category = models.ForeignKey(Category, on_delete=SET_NULL, null=True)
   
