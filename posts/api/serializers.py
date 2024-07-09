@@ -2,7 +2,7 @@ from rest_framework import serializers
 from ..models import Post
 from users.api.serializers import UserSerializer
 from categories.api.serializers import CategorySerializer
-
+# from comments.api.serializers import CommentsSerializers
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,6 +15,7 @@ class PostSerializer(serializers.ModelSerializer):
         representation['user'] = UserSerializer(instance.user).data['username']
         representation['category'] = CategorySerializer(
             instance.category).data['title']
+        # representation['comments'] = CommentsSerializers().data
         return representation
 
     def create(self, validated_data):

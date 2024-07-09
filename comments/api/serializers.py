@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from ..models import Comments
-from posts.api.serializers import PostSerializer
 from users.api.serializers import UserSerializer
 
 
@@ -10,6 +9,7 @@ class CommentsSerializers(serializers.ModelSerializer):
         fields = ['id', 'content', 'created_at', 'user', 'post']
 
     def to_representation(self, instance):
+        from posts.api.serializers import PostSerializer # Importacion diferida
         representation = super().to_representation(instance)
         representation['post'] = PostSerializer(instance.post).data['title']
         representation['user'] = UserSerializer(instance.user).data['username']
