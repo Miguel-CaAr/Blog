@@ -28,8 +28,7 @@ class PasswordResetView(APIView):
             reset_link = f'http://ejemplo.com/reset-password/{str(refresh_token.access_token)}'
             send_mail(
                 'Recueperacion de contraseña',
-                f'Para restablecer su contraseña, haz click en el siguiente enlace: {
-                    reset_link}',
+                f'Para restablecer su contraseña, haz click en el siguiente enlace: {reset_link}',
                 settings.EMAIL_HOST_USER,
                 [email],
                 fail_silently=False,
