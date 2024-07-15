@@ -30,9 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =  os.environ.get('DEBUG')
 
-# ALLOWED_HOSTS = [
-#     os.environ.get('CORS_ALLOWED_ORIGINS'),
-# ]
+ALLOWED_HOSTS = ['*']
 
 # Aquí puedes agregar los dominios permitidos para CORS
 # CORS_ORIGIN_WHITELIST = [
