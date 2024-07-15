@@ -16,6 +16,10 @@ import cloudinary
 #? For deploy in Render
 import dj_database_url
 import os
+#? Variables of environment config
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,16 +29,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pkh$$si7q%y3k_%o6$&m#e#wntts^14k+kp+%p1vqt6m#r%qr#'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
 # Aquí puedes agregar los dominios permitidos para CORS
 CORS_ALLOWED_ORIGINS = [
-    'https://blog-3inr.onrender.com',
+    os.getenv('CORS_ALLOWED_ORIGINS'),
 ]
 
 # Application definition
@@ -113,7 +117,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default=os.getenv('DATABASE_URL'),
         conn_max_age=600
     )
 }
@@ -178,15 +182,15 @@ SIMPLE_JWT = {
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'postmanpruebadrf@gmail.com'  # Tu correo desde el cual se enviarán los correos
-EMAIL_HOST_PASSWORD = 'passwordpruebadrf;'   # Contraseña de tu correo
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # Tu correo desde el cual se enviarán los correos
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')   # Contraseña de tu correo
 EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 cloudinary.config(
-    cloud_name="duobjlhl9",
-    api_key="668237792194115",
-    api_secret="VKXVPMmgTyjySQWoRrKyCy4TEd0"
+    cloud_name=os.getenv('CLOUD_NAME'),
+    api_key=os.getenv('API_KEY_CLOUDINARY'),
+    api_secret=os.getenv('API_SECRET_CLOUDINARY')
 )
 
 #? Config for deploy in Render (static files)
