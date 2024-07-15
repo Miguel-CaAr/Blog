@@ -16,10 +16,6 @@ import cloudinary
 #? For deploy in Render
 import dj_database_url
 import os
-#? Variables of environment config
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,16 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY_DJANGO')
+SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  os.getenv('DEBUG')
+DEBUG =  os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
 # Aquí puedes agregar los dominios permitidos para CORS
 CORS_ALLOWED_ORIGINS = [
-    os.getenv('CORS_ALLOWED_ORIGINS'),
+    os.environ.get('CORS_ALLOWED_ORIGINS'),
 ]
 
 # Application definition
@@ -117,7 +113,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default=os.getenv('DATABASE_URL_DJANGO'),
+        default=os.environ.get('DATABASE_URL_DJANGO'),
         conn_max_age=600
     )
 }
@@ -182,15 +178,15 @@ SIMPLE_JWT = {
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # Tu correo desde el cual se enviarán los correos
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')   # Contraseña de tu correo
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')  # Tu correo desde el cual se enviarán los correos
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')   # Contraseña de tu correo
 EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 cloudinary.config(
-    cloud_name=os.getenv('CLOUD_NAME'),
-    api_key=os.getenv('API_KEY_CLOUDINARY'),
-    api_secret=os.getenv('API_SECRET_CLOUDINARY')
+    cloud_name=os.environ.get('CLOUD_NAME'),
+    api_key=os.environ.get('API_KEY_CLOUDINARY'),
+    api_secret=os.environ.get('API_SECRET_CLOUDINARY')
 )
 
 #? Config for deploy in Render (static files)
