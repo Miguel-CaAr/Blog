@@ -25,8 +25,7 @@ class PasswordResetView(APIView):
 
             # Generar un token para agregar al url
             refresh_token = RefreshToken.for_user(user)
-            reset_link = f'http://ejemplo.com/reset-password/{
-                str(refresh_token.access_token)}'
+            reset_link = f'http://ejemplo.com/reset-password/{str(refresh_token.access_token)}'
             send_mail(
                 'Recueperacion de contraseña',
                 f'Para restablecer su contraseña, haz click en el siguiente enlace: {
