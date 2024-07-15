@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 
 # Aquí puedes agregar los dominios permitidos para CORS
 CORS_ALLOWED_ORIGINS = [
-    'https://blog-v2h6.onrender.com',
+    'https://blog-3inr.onrender.com',
 ]
 
 # Application definition
