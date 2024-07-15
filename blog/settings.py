@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
 
 # Aquí puedes agregar los dominios permitidos para CORS
 CORS_ALLOWED_ORIGINS = [
-    f'{os.environ.get('CORS_ALLOWED_ORIGINS')}',
+    f'{os.environ.get("CORS_ALLOWED_ORIGINS")}',
 ]
 
 # Application definition
