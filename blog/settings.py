@@ -30,7 +30,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =  os.environ.get('DEBUG')
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '[::1]',
+    'blog-ish1.onrender.com',
+]
 
 # Aquí puedes agregar los dominios permitidos para CORS
 CORS_ALLOWED_ORIGINS = [ 
