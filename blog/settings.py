@@ -41,6 +41,9 @@ CORS_ALLOWED_ORIGINS = [
 # Permitir credenciales
 CORS_ALLOW_CREDENTIALS = True
 
+# Permitir todos los orígenes (no recomendado en producción)
+CORS_ALLOW_ALL_ORIGINS = True
+
 # Application definition
 
 INSTALLED_APPS = [
