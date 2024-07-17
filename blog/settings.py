@@ -31,23 +31,19 @@ SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO')
 DEBUG =  os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '[::1]',
-    'blog-ish1.onrender.com',
+    os.environ.get('CORS_ALLOWED_ORIGINS')
 ]
 
 # Aquí puedes agregar los dominios permitidos para CORS
 CORS_ALLOWED_ORIGINS = [ 
-    os.environ.get('CORS_ALLOWED_ORIGINS'), 
-    'http://localhost:5173'
+    os.environ.get('CORS_ALLOWED_ORIGINS'),
 ]
 
 # Permitir credenciales
 CORS_ALLOW_CREDENTIALS = True
 
 # Permitir todos los orígenes (no recomendado en producción)
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
