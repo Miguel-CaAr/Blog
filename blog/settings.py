@@ -33,7 +33,10 @@ DEBUG =  os.environ.get('DEBUG')
 # ALLOWED_HOSTS = ['*']
 
 # Aquí puedes agregar los dominios permitidos para CORS
-CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS')
+CORS_ALLOWED_ORIGINS = [ 
+    os.environ.get('CORS_ALLOWED_ORIGINS'), 
+    'http://localhost:5173'
+]
 
 # Permitir credenciales
 CORS_ALLOW_CREDENTIALS = True
