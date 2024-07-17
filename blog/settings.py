@@ -30,12 +30,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =  os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 # Aquí puedes agregar los dominios permitidos para CORS
-# CORS_ORIGIN_WHITELIST = [
-#     os.environ.get('CORS_ALLOWED_ORIGINS'),
-# ]
+CORS_ALLOWED_ORIGINS = [
+    os.environ.get('CORS_ALLOWED_ORIGINS'),
+]
+
+# Permitir credenciales
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -72,7 +75,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     #? Config for deploy in Render (static files)
     'whitenoise.middleware.WhiteNoiseMiddleware',
