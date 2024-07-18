@@ -40,7 +40,7 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     os.environ.get('CORS_ALLOWED_ORIGIN_BACK'),
-    os.environ.get('CORS_ALLOWED_ORIGIN_FRONT'),
+    os.environ.get('CORS_ALLOWED_ORIGIN_FRONT')
 ]
 
 # Permitir credenciales
