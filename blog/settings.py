@@ -39,7 +39,6 @@ ALLOWED_HOSTS = [
 
 # Aquí puedes agregar los dominios permitidos para CORS
 CORS_ALLOWED_ORIGINS = [
-    '*'
     # 'http://localhost:5173',
     # os.environ.get('CORS_ALLOWED_ORIGIN_BACK'),
     # os.environ.get('CORS_ALLOWED_ORIGIN_FRONT')
