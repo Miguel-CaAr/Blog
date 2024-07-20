@@ -33,7 +33,6 @@ DEBUG = True
 ALLOWED_HOSTS = [
     # 'localhost',
     os.environ.get('ALLOWED_HOST_BACK'),
-    os.environ.get('ALLOWED_HOST_FRONT')
 ]
 
 # Aquí puedes agregar los dominios permitidos para CORS
@@ -51,6 +50,7 @@ CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,7 +70,6 @@ INSTALLED_APPS = [
     'comments',
     #Utils
     'utils.password_reset',
-    'corsheaders',
     # Cloudinary (Para almacenar imagenes)
     'cloudinary',
 ]
