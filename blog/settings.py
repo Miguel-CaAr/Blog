@@ -30,22 +30,17 @@ SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =  os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = [
-    # 'localhost',
+# ALLOWED_HOSTS = [
+#     # 'localhost',
     os.environ.get('ALLOWED_HOST_BACK'),
-    os.environ.get('ALLOWED_HOST_FRONT')
-]
+#     os.environ.get('ALLOWED_HOST_FRONT')
+# ]
 
 # Aquí puedes agregar los dominios permitidos para CORS
 CORS_ALLOWED_ORIGINS = [
     # 'http://localhost:5173',
     os.environ.get('CORS_ALLOWED_ORIGIN_FRONT')
 ]
-#!---------BORRAR--------#
-print("ALLOWED_HOST_BACK:", os.environ.get('ALLOWED_HOST_BACK'))
-print("ALLOWED_HOST_FRONT:", os.environ.get('ALLOWED_HOST_FRONT'))
-print("CORS_ALLOWED_ORIGIN_FRONT:", os.environ.get('CORS_ALLOWED_ORIGIN_FRONT'))
-#!----------------------#
 
 # Permitir credenciales
 CORS_ALLOW_CREDENTIALS = True
