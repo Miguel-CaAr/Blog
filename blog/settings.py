@@ -32,7 +32,7 @@ DEBUG =  os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
     # 'localhost',
-    os.environ.get('ALLOWED_HOST_BACK'),
+    # os.environ.get('ALLOWED_HOST_BACK'),
     os.environ.get('ALLOWED_HOST_FRONT')
 ]
 
