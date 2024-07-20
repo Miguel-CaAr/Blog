@@ -32,7 +32,7 @@ DEBUG =  os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
     # 'localhost',
-    # os.environ.get('ALLOWED_HOST_BACK'),
+    os.environ.get('ALLOWED_HOST_BACK'),
     os.environ.get('ALLOWED_HOST_FRONT')
 ]
 
@@ -41,6 +41,11 @@ CORS_ALLOWED_ORIGINS = [
     # 'http://localhost:5173',
     os.environ.get('CORS_ALLOWED_ORIGIN_FRONT')
 ]
+#!---------BORRAR--------#
+print("ALLOWED_HOST_BACK:", os.environ.get('ALLOWED_HOST_BACK'))
+print("ALLOWED_HOST_FRONT:", os.environ.get('ALLOWED_HOST_FRONT'))
+print("CORS_ALLOWED_ORIGIN_FRONT:", os.environ.get('CORS_ALLOWED_ORIGIN_FRONT'))
+#!----------------------#
 
 # Permitir credenciales
 CORS_ALLOW_CREDENTIALS = True
@@ -76,6 +81,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -83,8 +90,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     #? Config for deploy in Render (static files)
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
