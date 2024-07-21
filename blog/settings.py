@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     # 'localhost',
+    os.environ.get('ALLOWED_HOST_FRONT'),
     os.environ.get('ALLOWED_HOST_BACK'),
 ]
 
@@ -45,7 +46,7 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
 # Permitir todos los orígenes (no recomendado en producción)
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
 
 # Application definition
 
