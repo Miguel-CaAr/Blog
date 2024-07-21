@@ -36,14 +36,14 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST_BACK'),
 ]
 
-# Aquí puedes agregar los dominios permitidos para CORS
-CORS_ALLOWED_ORIGINS = [
-    # 'http://localhost:5173',
-    os.environ.get('CORS_ALLOWED_ORIGIN_FRONT')
-]
+# # Aquí puedes agregar los dominios permitidos para CORS
+# CORS_ALLOWED_ORIGINS = [
+#     # 'http://localhost:5173',
+#     os.environ.get('CORS_ALLOWED_ORIGIN_FRONT')
+# ]
 
 # Permitir credenciales
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
 
 # Permitir todos los orígenes (no recomendado en producción)
 CORS_ALLOW_ALL_ORIGINS = True
@@ -51,7 +51,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
+    # 'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,8 +76,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",    
+    # "corsheaders.middleware.CorsMiddleware",
+    # "django.middleware.common.CommonMiddleware",    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
